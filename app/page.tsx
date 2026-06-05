@@ -303,7 +303,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-xs font-semibold mb-6 tracking-wide uppercase"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Timetablr 2.0 is now live
+                Timetablr 2.0 is now under active development
               </motion.div>
 
               <motion.h1
@@ -346,27 +346,7 @@ export default function Home() {
                 </a>
               </motion.div>
 
-              {/* Trust strip */}
-              <motion.div
-                variants={fadeInUp}
-                className="mt-10 flex items-center gap-4 text-sm text-muted-foreground"
-              >
-                <div className="flex -space-x-2">
-                  {["#4A7FA5", "#5A8F69", "#7B5EA7", "#D4883A"].map((c, i) => (
-                    <div
-                      key={i}
-                      className="w-7 h-7 rounded-full border-2 border-background"
-                      style={{ background: c }}
-                    />
-                  ))}
-                </div>
-                <span>
-                  Trusted by{" "}
-                  <strong className="text-foreground">1 university</strong> and
-                  used by{" "}
-                  <strong className="text-foreground">1,000 students</strong>
-                </span>
-              </motion.div>
+        
             </motion.div>
 
             {/* Right – feature cards grid */}
