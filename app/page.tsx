@@ -4,21 +4,17 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
   Calendar,
-  Users,
-  Clock,
   LayoutDashboard,
   Bell,
   UserCircle,
   LogIn,
-  Star,
-  BookOpen,
   BarChart3,
   CheckSquare,
-  MessageSquare,
   Sparkles,
   ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { UniversityLogo } from "@/components/UniversityLogo";
 import { useRef, useEffect, useState } from "react";
 
 const fadeInUp = {
@@ -314,9 +310,9 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.05] mb-6"
               >
-                School
+                University
                 <br />
-                scheduling,{" "}
+                timetables,{" "}
                 <span className="text-muted-foreground">
                   made
                   <br />
@@ -328,8 +324,10 @@ export default function Home() {
                 variants={fadeInUp}
                 className="text-lg text-muted-foreground mb-10 leading-relaxed"
               >
-                From timetables and attendance to class reps and announcements —
-                everything a school needs, in one calm, focused workspace.
+                Built for universities that still rely on long PDFs and
+                scattered screenshots. Timetablr makes class schedules simple to
+                access, organized, and instantly available for students and
+                departments.
               </motion.p>
 
               <motion.div variants={fadeInUp} className="flex flex-wrap gap-3">
@@ -364,8 +362,9 @@ export default function Home() {
                 </div>
                 <span>
                   Trusted by{" "}
-                  <strong className="text-foreground">500+ schools</strong>{" "}
-                  worldwide
+                  <strong className="text-foreground">1 university</strong> and
+                  used by{" "}
+                  <strong className="text-foreground">1,000 students</strong>
                 </span>
               </motion.div>
             </motion.div>
@@ -398,15 +397,81 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Supported Universities ── */}
+      <section className="py-20">
+        <div className="container mx-auto px-6 max-w-6xl">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={staggerContainer}
+            className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 items-center"
+          >
+            <motion.div variants={fadeInUp}>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-xs font-semibold mb-5 tracking-wide uppercase">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                Currently in use
+              </div>
+
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-5">
+                Trusted daily by students and faculty.
+              </h2>
+
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
+                Timetablr is currently deployed at PAK-AUSTRIA Fachhochschule
+                and is actively used by students and faculty to access
+                schedules, stay informed, and simplify academic planning. This
+                real-world deployment helps us refine and improve the platform
+                before expanding to additional institutions.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  "Active university deployment",
+                  "Used by 1,000+ students",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="px-4 py-2 rounded-full border border-border bg-card text-sm text-foreground/80"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={fadeInUp}
+              className="rounded-[2rem] border border-border/60 bg-card p-6 md:p-8 shadow-sm"
+            >
+              <div className="rounded-[1.5rem] bg-background border border-border/40 p-6 md:p-8">
+                <UniversityLogo className="w-full h-auto text-foreground" />
+              </div>
+              <div className="mt-5 flex items-center justify-between gap-4 text-sm text-muted-foreground">
+                <span>Officially supported institution</span>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* ── Stats ── */}
       <section className="py-16 border-y border-border/50 bg-card/30">
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: 500, suffix: "+", label: "Schools using Timetablr" },
-              { value: 2, suffix: "M+", label: "Classes scheduled" },
-              { value: 98, suffix: "%", label: "Conflict reduction" },
-              { value: 10, suffix: "k+", label: "Educators empowered" },
+              { value: 1, suffix: "", label: "University using Timetablr" },
+              {
+                value: 1000,
+                suffix: "+",
+                label: "Students using the platform",
+              },
+              { value: 1, suffix: "", label: "Campus currently onboarded" },
+              {
+                value: 24,
+                suffix: "/7",
+                label: "Timetable access for students",
+              },
             ].map((stat, i) => (
               <div key={i}>
                 <div className="text-4xl md:text-5xl font-bold text-foreground mb-2">
@@ -436,7 +501,7 @@ export default function Home() {
               variants={fadeInUp}
               className="text-3xl md:text-5xl font-bold tracking-tight mb-5"
             >
-              Everything a school needs,
+              Everything a university timetable needs,
               <br />
               beautifully organized.
             </motion.h2>
@@ -444,8 +509,8 @@ export default function Home() {
               variants={fadeInUp}
               className="text-lg text-muted-foreground max-w-2xl mx-auto"
             >
-              Eight powerful modules, one unified platform — built for the
-              people who keep schools running.
+              One focused platform built for the people who keep university
+              schedules clear, current, and easy to find.
             </motion.p>
           </motion.div>
 
@@ -454,42 +519,42 @@ export default function Home() {
               {
                 icon: LayoutDashboard,
                 title: "Home Dashboard",
-                desc: "Quick stats, today's schedule, and at-a-glance insights for every user type.",
+                desc: "Quick access to today's timetable, upcoming classes, and key schedule updates for each user.",
               },
               {
                 icon: Calendar,
-                title: "Timetable & Planner",
-                desc: "Drag-and-drop scheduling with instant conflict detection across rooms and teachers.",
+                title: "Timetable Access",
+                desc: "Browse organized course schedules without digging through lengthy PDFs or outdated screenshots.",
               },
               {
                 icon: CheckSquare,
-                title: "Attendance & Reports",
-                desc: "One-tap roll calls, absence alerts, and exportable attendance analytics.",
+                title: "Section Planning",
+                desc: "Keep sections, rooms, and timing blocks aligned so students can find the right class fast.",
               },
               {
                 icon: BarChart3,
-                title: "Class Rep Dashboard",
-                desc: "Class representatives get their own space to track grades, updates, and team tasks.",
+                title: "Department Coordination",
+                desc: "Coordinate schedules across programs, semesters, and faculty assignments from one place.",
               },
               {
                 icon: Bell,
-                title: "Notifications",
-                desc: "Announcements and push alerts that reach the right people at exactly the right time.",
+                title: "Schedule Updates",
+                desc: "Share timetable changes, room swaps, and important announcements with the right students quickly.",
               },
               {
                 icon: Sparkles,
-                title: "Skills & Social",
-                desc: "Track extracurricular skills, social activity, and peer recognition in one tab.",
+                title: "Cleaner Student Experience",
+                desc: "Give students a fast, mobile-friendly way to check classes anytime without extra friction.",
               },
               {
                 icon: UserCircle,
                 title: "Profile & Settings",
-                desc: "Personal account management with privacy controls and customizable preferences.",
+                desc: "Personal account management with privacy controls and preferences for each university user.",
               },
               {
                 icon: LogIn,
                 title: "Onboarding & Auth",
-                desc: "Smooth login, signup, and password reset flows — with school SSO support.",
+                desc: "Smooth login, signup, and password reset flows for students, faculty, and administrators.",
               },
             ].map((f, i) => {
               const Icon = f.icon;
@@ -535,18 +600,18 @@ export default function Home() {
             {[
               {
                 step: "01",
-                title: "Import Data",
-                desc: "Connect your SIS or upload CSVs of classes, staff, and rooms in seconds.",
+                title: "Collect Schedules",
+                desc: "Bring together timetable data from university PDFs, spreadsheets, or department records.",
               },
               {
                 step: "02",
-                title: "Set Constraints",
-                desc: "Define teacher availability, room capacities, and curriculum requirements.",
+                title: "Organize Clearly",
+                desc: "Structure classes by department, semester, section, room, and faculty so everything is easy to navigate.",
               },
               {
                 step: "03",
-                title: "Generate & Refine",
-                desc: "One click builds the optimal timetable. Fine-tune with simple drag-and-drop.",
+                title: "Share Instantly",
+                desc: "Publish an accessible timetable experience students can check anytime without searching through files.",
               },
             ].map((item, i) => (
               <motion.div
@@ -572,21 +637,21 @@ export default function Home() {
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6 max-w-6xl">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 text-center">
-            Trusted by educators
+            Built from a real student problem
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 quote:
-                  "Timetablr completely changed how our administration operates. What used to take three weeks of stressful planning now takes a few hours. It's an absolute joy to use.",
-                author: "Sarah Jenkins",
-                role: "Principal, Oakridge High",
+                  "Finding our class timetable used to mean reopening a long PDF every single time we needed to check the next lecture or classroom. Timetablr solves that with a faster, clearer experience.",
+                author: "Student-led insight",
+                role: "Based on the story behind Timetablr",
               },
               {
                 quote:
-                  "The interface is so clean and intuitive. I didn't need any training. The attendance module alone saved our office staff two hours every single day.",
-                author: "David Chen",
-                role: "Operations Director, Westview Academy",
+                  "Even saved screenshots were hard to keep updated. Timetablr puts the timetable at your fingertips, so students and departments can access the right schedule without the usual hassle.",
+                author: "Product mission",
+                role: "Designed for universities",
               },
             ].map((testimonial, i) => (
               <motion.div
@@ -643,8 +708,8 @@ export default function Home() {
               Ready to find calm?
             </h2>
             <p className="text-xl opacity-90 mb-10 max-w-2xl mx-auto">
-              Join hundreds of schools that have replaced their scheduling
-              headaches with Timetablr.
+              Replace confusing university timetable PDFs with a cleaner, faster
+              experience for students and staff.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button

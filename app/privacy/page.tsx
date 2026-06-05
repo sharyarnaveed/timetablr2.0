@@ -9,7 +9,7 @@ const sections = [
     id: "introduction",
     title: "1. Introduction",
     content: [
-      `Timetablr ("we", "us", or "our") is committed to protecting the privacy of all individuals who use our platform — including school administrators, teachers, class representatives, students, and parents. This Privacy Policy describes how we collect, use, store, and share information when you access or use timetablr.app (the "Service").`,
+      `Timetablr ("we", "us", or "our") is committed to protecting the privacy of everyone who uses our platform, including university administrators, faculty members, department coordinators, class representatives, and students. This Privacy Policy describes how we collect, use, store, and share information when you access or use timetablr.app (the "Service").`,
       `By accessing or using the Service, you acknowledge that you have read, understood, and agree to the terms of this Privacy Policy. If you do not agree, please discontinue use of the Service immediately.`,
     ],
   },
@@ -18,13 +18,12 @@ const sections = [
     id: "data-collected",
     title: "2. Information We Collect",
     content: [
-      "We collect only the information necessary to provide a high-quality school management experience:",
+      "We collect only the information necessary to provide a high-quality university timetable experience:",
     ],
     list: [
-      "Account information: name, email address, role (admin, teacher, student), and school affiliation",
-      "Scheduling data: class times, room assignments, subject names, and teacher availability",
-      "Attendance records: roll call logs, absence notes, and late arrivals",
-      "Profile data: profile photos, contact information, and biographical details (optional)",
+      "Account information: name, email address, role (admin, faculty, coordinator, class representative, student), and university affiliation",
+      "Scheduling data: course names, section details, class times, room assignments, faculty allocations, and department timetable data",
+      "Profile data: profile photos, contact information, and basic biographical details (optional)",
       "Usage data: feature interactions, session duration, and error logs — used solely to improve the platform",
       "Device information: browser type, IP address, and operating system for security and compatibility purposes",
     ],
@@ -36,9 +35,9 @@ const sections = [
     title: "3. How We Use Your Information",
     content: ["Your information is used exclusively to operate and improve the Timetablr platform:"],
     list: [
-      "Generating and optimizing conflict-free school timetables",
-      "Managing attendance records and generating reports for authorized staff",
-      "Sending relevant notifications and announcements to the correct user groups",
+      "Publishing clear, searchable university timetables for students and staff",
+      "Organizing schedules across departments, rooms, sections, and faculty assignments",
+      "Sending relevant timetable updates and announcements to the correct user groups",
       "Providing customer support and responding to inquiries",
       "Ensuring the security, integrity, and reliability of the Service",
       "Complying with legal obligations under applicable law",
@@ -83,8 +82,8 @@ const sections = [
       "We retain personal data only for as long as necessary to fulfil the purposes outlined in this policy or as required by law:",
     ],
     list: [
-      "Active account data: retained for the duration of your school's subscription",
-      "Attendance and scheduling records: retained for up to 7 years for compliance with educational record-keeping requirements",
+      "Active account data: retained for the duration of your university's subscription",
+      "Scheduling records: retained for as long as needed to support academic operations and institutional record-keeping requirements",
       "Usage logs: retained for 90 days, then automatically purged",
       "Deleted accounts: permanently removed from production systems within 30 days of deletion request",
     ],
@@ -123,15 +122,15 @@ const sections = [
   {
     icon: Globe,
     id: "children",
-    title: "9. Children's Privacy",
+    title: "9. Student Data",
     content: [
-      "Timetablr is designed for school management and may be used in contexts involving students under 13. In such cases:",
+      "Timetablr is built for universities and higher education institutions. Student accounts and timetable access are typically provisioned by the institution. In these cases:",
     ],
     list: [
-      "Student accounts must be created and managed by school administrators, not by students themselves",
-      "We collect only the minimum data required to provide scheduling and attendance features for minors",
-      "Parental consent must be obtained by the school in accordance with applicable law (including COPPA in the US and GDPR in the EU)",
-      "Student data is never used for marketing, profiling, or any purpose beyond direct educational service delivery",
+      "Student accounts may be created and managed directly by the university or its authorized departments",
+      "We collect only the minimum data required to provide timetable access and related university scheduling features",
+      "Student data is never used for marketing, profiling, or any purpose beyond direct service delivery and platform improvement",
+      "Universities remain responsible for ensuring their use of Timetablr complies with applicable student data and education privacy laws",
     ],
   },
   {
@@ -142,9 +141,8 @@ const sections = [
       "If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please reach out to our dedicated privacy team:",
     ],
     list: [
-      "Email: privacy@timetablr.app",
-      "Data Protection Officer: dpo@timetablr.app",
-      "Postal address: Timetablr Inc., 14 School Lane, Education Quarter, London, EC1A 1AA, United Kingdom",
+      "Email: sharyarmalik430@gmail.com",
+      "Support: Use the contact page on timetablr.app for product or privacy questions",
     ],
     footer: "We aim to respond to all privacy-related inquiries within 5 business days.",
   },
@@ -172,7 +170,7 @@ export default function Privacy() {
           </p>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-3xl">
             At Timetablr, your privacy is not an afterthought — it is a design principle. This document
-            explains plainly and completely how we handle your information.
+            explains plainly and completely how we handle information shared by universities, faculty, and students.
           </p>
         </motion.div>
 

@@ -1,9 +1,11 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -17,7 +19,7 @@ export default function Contact() {
         >
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">Get in touch</h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.
+            Whether you want to bring Timetablr to your university, ask about features, or share feedback, we are ready to help.
           </p>
         </motion.div>
 
@@ -35,7 +37,7 @@ export default function Contact() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email">Email Address</Label>
-                <Input id="email" type="email" placeholder="jane@school.edu" className="h-12 bg-background" />
+                <Input id="email" type="email" placeholder="jane@university.edu" className="h-12 bg-background" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="subject">Subject</Label>
@@ -43,7 +45,7 @@ export default function Contact() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">Message</Label>
-                <Textarea id="message" placeholder="Tell us more about your needs..." className="min-h-[150px] bg-background resize-none" />
+                <Textarea id="message" placeholder="Tell us about your timetable needs, department setup, or questions..." className="min-h-[150px] bg-background resize-none" />
               </div>
               <Button type="submit" size="lg" className="w-full rounded-full h-12">
                 Send Message
@@ -59,34 +61,21 @@ export default function Contact() {
           >
             <div>
               <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <p className="text-muted-foreground mb-8 leading-relaxed">
+                Timetablr is built to make university timetables easier to access, manage, and share without relying on long PDF schedules or outdated screenshots.
+              </p>
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Our Office</h3>
-                    <p className="text-muted-foreground">123 Education Way<br />San Francisco, CA 94103</p>
-                  </div>
-                </div>
+                {/* Our Office removed per request */}
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                    <p className="text-muted-foreground">hello@timetabler.com<br />support@timetabler.com</p>
+                    <p className="text-muted-foreground">sharyarmalik430@gmail.com</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Call Us</h3>
-                    <p className="text-muted-foreground">+1 (555) 123-4567<br />Mon-Fri from 9am to 5pm PST</p>
-                  </div>
-                </div>
+                {/* Call Us removed per request */}
               </div>
             </div>
           </motion.div>

@@ -65,7 +65,7 @@ if (updateError || !data) {
 await sendEmail(
   
     "Your password has been successfully reset. If you did not initiate this change, please contact support immediately.",
-    null,
+  undefined,
     email,
   );
 return NextResponse.json(
