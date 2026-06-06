@@ -17,10 +17,12 @@ try {
     }
 
     const { data, error } = await supabase.rpc(
-  "get_skills_with_stats"
+  "get_skills_with_stats",
+  {
+    p_user_id: userdatatoken.user.userid,
+  }
 );
 
-console.log(data);
 
 
     if (error) {

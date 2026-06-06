@@ -31,9 +31,9 @@ export const checkAuth = (req: NextRequest): AuthSuccess | AuthFailure => {
 
     const token = authHeader.split(" ")[1];
 
-    console.log("Token:", token);
+   
     const decoded = jwt.verify(token, TOKEN_SECRET);
-    console.log("Decoded token:", decoded);
+  
     if (typeof decoded === "string") {
       return {
         success: false,
