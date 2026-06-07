@@ -20,10 +20,16 @@ export async function PATCH(request: NextRequest) {
     }
 
     const body = await request.json() as Record<NotificationKey, unknown>;
+const { data: currentData } = await supabase
+  .from("notifications")
+  .select(allowedKeys.join(", "))
+  .eq("user_id", auth.user.userid)
+  .single();
 
+  const current = currentData as Record<NotificationKey, boolean> | null;
     const updates: Record<string, boolean> = {};
     for (const key of allowedKeys) {
-      if (typeof body[key] === "boolean") {
+      if (typeof body[key] === "boolean"&&body[key]!==current?.[key]) {
         updates[key] = body[key];
       }
     }
