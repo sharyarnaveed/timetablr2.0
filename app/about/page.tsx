@@ -1,22 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-background pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-background pt-24 sm:pt-28 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-4xl">
+
+        {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-14 md:mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 sm:mb-5 md:mb-6 leading-tight">
             Our Mission
           </h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             We believe accessing class schedules shouldn't be a source of
             frustration. Our goal is to make timetable management simple,
             organized, and instantly accessible for students and educational
@@ -25,27 +26,31 @@ export default function About() {
           </p>
         </motion.div>
 
-        {/* <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+        {/* Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full aspect-[21/9] rounded-3xl overflow-hidden mb-20 bg-muted"
-        > */}
+          className="w-full rounded-2xl sm:rounded-3xl overflow-hidden mb-10 sm:mb-14 md:mb-20 bg-muted"
+        >
           <img
             src="/about.png"
             alt="The Timetablr team"
-            className="w-full h-full object-cover "
+            className="w-full h-full object-cover aspect-[16/9] sm:aspect-[21/9]"
           />
-        {/* </motion.div> */}
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-16">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 md:gap-16">
+
+          {/* Story */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-6">The Story</h2>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">The Story</h2>
+            <div className="space-y-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
               <p>
                 Timetablr was born from a simple problem many students face
                 every day. Finding our class timetable was frustrating because
@@ -53,7 +58,6 @@ export default function About() {
                 needed to check the next class, classroom, or schedule, we had
                 to open the PDF again and search through multiple pages.
               </p>
-
               <p>
                 Even when students saved screenshots of their timetable, keeping
                 them updated and finding the right information quickly was still
@@ -65,13 +69,15 @@ export default function About() {
               </p>
             </div>
           </motion.div>
+
+          {/* Values */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl font-bold mb-6">Our Values</h2>
-            <ul className="space-y-6">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Our Values</h2>
+            <ul className="space-y-5 sm:space-y-6">
               {[
                 {
                   title: "Efficiency",
@@ -86,13 +92,14 @@ export default function About() {
                   desc: "Students and institutions can depend on accurate, up-to-date schedule information.",
                 },
               ].map((value, i) => (
-                <li key={i} className="border-l-2 border-primary pl-6">
-                  <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
-                  <p className="text-muted-foreground">{value.desc}</p>
+                <li key={i} className="border-l-2 border-primary pl-4 sm:pl-6">
+                  <h3 className="text-lg sm:text-xl font-semibold mb-1 sm:mb-2">{value.title}</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground">{value.desc}</p>
                 </li>
               ))}
             </ul>
           </motion.div>
+
         </div>
       </div>
     </div>
