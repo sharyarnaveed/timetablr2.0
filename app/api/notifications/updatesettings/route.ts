@@ -21,7 +21,7 @@ export async function PATCH(request: NextRequest) {
 
     const body = await request.json() as Record<NotificationKey, unknown>;
 const { data: currentData } = await supabase
-  .from("notifications")
+  .from("users")
   .select(allowedKeys.join(", "))
   .eq("user_id", auth.user.userid)
   .single();
@@ -45,9 +45,9 @@ const { data: currentData } = await supabase
       .from("users")
       .update(updates)
       .eq("user_id", auth.user.userid);
+      
 
     if (error) throw error;
-
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("Error updating notification settings:", err);
