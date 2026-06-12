@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const token = createtoken(user.user_id);
+    const token = createtoken(user.user_id,user.program,user.university);
     return NextResponse.json(
       {
         token,

@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      const token=createtoken(newuser.user_id)
+      const token=createtoken(newuser.user_id,program,university)
 
 
      return NextResponse.json(

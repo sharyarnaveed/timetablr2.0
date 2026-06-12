@@ -5,6 +5,8 @@ const TOKEN_SECRET = process.env.TOKRENVALUE!;
 
 interface AuthTokenPayload extends JwtPayload {
   userid: string | number;
+  program: string;
+  university: string;
 }
 
 type AuthSuccess = {
@@ -50,10 +52,13 @@ export const checkAuth = (req: NextRequest): AuthSuccess | AuthFailure => {
         message: "Invalid token",
       };
     }
-
+console.log("Decoded token:", decoded);
     return {
       success: true,
       user: decoded as AuthTokenPayload,
+
+
+      
     };
   } catch (error) {
     console.log("Authentication error:", error);
