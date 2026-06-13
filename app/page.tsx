@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { UniversityLogo } from "@/components/UniversityLogo";
+import { ReviewsSection } from "@/components/ReviewsSection";
 import { useRef, useEffect, useState } from "react";
 
 const fadeInUp = {
@@ -613,62 +614,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <section className="py-24 bg-card">
-        <div className="container mx-auto px-6 max-w-6xl">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16 text-center">
-            Built from a real student problem
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              {
-                quote:
-                  "Finding our class timetable used to mean reopening a long PDF every single time we needed to check the next lecture or classroom. Timetablr solves that with a faster, clearer experience.",
-                author: "Student-led insight",
-                role: "Based on the story behind Timetablr",
-              },
-              {
-                quote:
-                  "Even saved screenshots were hard to keep updated. Timetablr puts the timetable at your fingertips, so students and departments can access the right schedule without the usual hassle.",
-                author: "Product mission",
-                role: "Designed for universities",
-              },
-            ].map((testimonial, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="bg-background p-8 md:p-10 rounded-3xl border border-border/50"
-              >
-                <div className="flex text-primary mb-6">
-                  {[...Array(5)].map((_, j) => (
-                    <svg
-                      key={j}
-                      className="w-5 h-5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-lg md:text-xl text-foreground mb-8 leading-relaxed font-medium">
-                  "{testimonial.quote}"
-                </p>
-                <div>
-                  <p className="font-bold text-foreground">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-muted-foreground text-sm">
-                    {testimonial.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── Reviews ── */}
+      <ReviewsSection />
 
       {/* ── CTA ── */}
       <section className="py-32 px-6">
