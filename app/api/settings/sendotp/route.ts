@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 const { sendEmail } = await import("@/utils/emailservice");
 import { checkAuth } from "@/utils/checkauth";
-
+import redis from "@/lib/Rediscon";
 import { supabase } from "@/lib/SupabaseClient";
 
 interface sendotp {
@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       );
     }
-    console.log(userdatatoken.user.userid);
     
 
     const { data: user, error } = await supabase
@@ -46,22 +45,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { data, error: otpError } = await supabase
-      .from("users")
-      .update({ otp })
-      .select("*")
-      .eq("user_id", userdatatoken.user.userid)
-      .single();
-    if (otpError || !data) {
-      console.log(otpError);
+   const sendotpredis= await redis.set(`otp:${email}`, otp,{
+    ex:180
+   });
+if (!sendotpredis) {
+  return NextResponse.json(
+    { message: "Failed to store OTP in Redis.", success: false },
+    { status: 500 },
+  );
+}
 
-      return NextResponse.json(
-        { message: "Failed to set OTP.", success: false },
-        { status: 500 },
-      );
-    }
     const emailSent = await sendEmail(
-      "Your OTP for email change is:",
+      "Your OTP is:",
       otp,
       email,
     );
